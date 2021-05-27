@@ -1,0 +1,606 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RenjuSridhar</title>
+    <link href="~/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="~/css/style-starter.css">
+    <link href="~/css/style.css" rel='stylesheet' type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script src="~/js/jquery-1.11.0.min.js"></script>
+    <link rel="stylesheet" href="~/css/flexslider.css" type="text/css" media="screen" />
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700,800&display=swap" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'> -->
+    <script src="js/modernizr.js"></script>
+    <!--Start-smoth-scrolling-->
+    <script type="text/javascript" src="~/js/move-top.js"></script>
+    <script type="text/javascript" src="~/js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+    <!--end-smoth-scrolling-->
+    <!--animated-css-->
+    <link href="~/css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <script src="~/js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+
+    <!--animated-css-->
+    <!--popup-->
+    <link href="~/Content/modal.css" rel="stylesheet" id="bootstrap-css">
+
+    <style type="text/css">
+
+
+        #enquirypopup .modal-dialog {
+            width: 350px;
+            padding: 0px;
+            position: relative;
+        }
+
+            #enquirypopup .modal-dialog:before {
+                content: '';
+                height: 0px;
+                width: 0px;
+                border-left: 50px solid #98dc74;
+                border-right: 50px solid transparent;
+                border-bottom: 50px solid transparent;
+                position: absolute;
+                top: 1px;
+               /*left: -14px;*/
+                z-index: 99;
+            }
+
+        .custom-modal-header {
+            text-align: center;
+            color: #4ac10b;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-top: 4px solid;
+        }
+
+        #enquirypopup .modal-dialog .close {
+            z-index: 99999999;
+            color: white;
+            text-shadow: 0px 0px 0px;
+            font-weight: normal;
+            top: 4px;
+            right: 6px;
+            position: absolute;
+            opacity: 1;
+        }
+
+        .custom-modal-header .modal-title {
+            /* font-weight: bold; */
+            font-size: 18px;
+        }
+
+        #enquirypopup .modal-dialog:after {
+            content: '';
+            height: 0px;
+            width: 0px;
+            /* border-right: 50px solid rgba(255, 0, 0, 0.98); */
+            border-right: 50px solid #98dc74;
+            border-bottom: 50px solid transparent;
+            position: absolute;
+            top: 1px;
+            right: 1px;
+            z-index: 10;
+        }
+
+        .form-group {
+            margin-bottom: 15px !important;
+        }
+
+        .form-inline .form-control {
+            display: inline-block;
+            width: 100%;
+            vertical-align: middle;
+        }
+    </style>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+
+    <!--popup-->
+</head>
+<body id="home">
+    <section class="w3l-header-4 mobile-header">
+        <div class="header-tophny" style="background:white;">
+            <div class="container-fluid">
+                <header class="top-headerhny">
+                    <!--/nav-->
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <!--<a class="navbar-brand" href="index.html">
+                            Str<span class="fa fa-globe" aria-hidden="true"></span>ll</a>
+                         if logo is image enable this   -->
+                        <a class="navbar-brand" href="@Url.Action("Index","Home")" style="margin-left:70px">
+                            <img src="~/images/logo.svg" alt="Your logo" title="Your logo" style="height:46px;" />
+                            <a style="font-size:14px;margin-left:-145px;margin-bottom:-61px;">The Children&#8217s Author</a>
+                            <!--<img src="images/logo1.svg" alt="Your logo" title="Your logo" style="margin-left:-141px;margin-bottom:-46px;"  />-->
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-top:22px;">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="@Url.Action("Index","Home")">
+                                        <img src="~/images/home.svg" alt="Your logo" title="Your logo" style="margin-top:-7px" />
+                                        <span class="sr-only">(current)</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#about" style="  font-family: sans-serif;">About me</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#services" style="font-family: sans-serif;">Books</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="@Url.Action("Blog","Home")" style=" font-family: sans-serif;">Blog</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#project" style=" font-family: sans-serif;">Short stories</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#printables" style=" font-family: sans-serif;">Free Resources</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="@Url.Action("Book","Admin")" style=" font-family: sans-serif;">My Books</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#contact" style=" font-family: sans-serif;">Contact</a>
+                                </li>
+                            </ul>
+
+                        </div>
+
+
+                    </nav>
+                    <!--//nav-->
+                </header>
+            </div>
+        </div>
+    </section>
+    <div class="banner">
+        <div class="slider">
+            <section class="slider">
+                <div class="flexslider" style="text-align:left;margin-top:49px;">
+                    <ul class="slides">
+                        <li>
+                            <br />
+                            <h2 style="margin-left:96px">Zippy And Zappy </h2>
+                            <h5 style="margin-left:96px">Go on an Adventure <img src="images/1.svg" class="himg" hidden /></h5>
+                            <div class="button-w3ls">
+                                <a href="@Url.Action("Book","Admin")" target="_blank" class="btn btn-sm animated-button greenslider" style="background-color:#fff">Know more </a>
+                            </div>
+                        </li>
+                        <li>
+                            <br />
+                            <h2 style="margin-left:96px">DREAMY</h2>
+                            <h5 style="margin-left:96px">the Hermit Crab's House Hunt<img src="images/1.svg" class="himg" hidden /></h5>
+                            <div class="button-w3ls">
+                                <a href="@Url.Action("Book","Admin")" target="_blank" class="btn btn-sm animated-button greenslider" style="background-color:#fff">Know more</a>
+                            </div>
+                        </li>
+                        <li>
+                            <br />
+                            <h2 style="margin-left:96px">Zippy And Zappy</h2>
+                            <h5 style="margin-left:96px">Go on an Adventure<img src="images/1.svg" class="himg" hidden /></h5>
+                            <div class="button-w3ls">
+                                <a href="@Url.Action("Book","Admin")" target="_blank" class="btn btn-sm animated-button greenslider" style="background-color:#fff">Know more </a>
+                            </div>
+                        </li>
+                        <li>
+                            <br />
+                            <h2 style="margin-left:96px">DREAMY</h2>
+                            <h5 style="margin-left:96px">the Hermit Crab's House Hunt<img src="images/1.svg" class="himg" hidden /></h5>
+                            <div class="button-w3ls">
+                                <a href="@Url.Action("Book","Admin")" target="_blank" class="btn btn-sm animated-button greenslider" style="background-color:#fff">Know more </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js">\x3C/script>')</script>
+            <!--FlexSlider-->
+            <script defer src="~/js/jquery.flexslider.js"></script>
+            <script type="text/javascript">
+                $(function () {
+                    SyntaxHighlighter.all();
+                });
+                $(window).load(function () {
+                    $('.flexslider').flexslider({
+                        animation: "slide",
+                        start: function (slider) {
+                            $('body').removeClass('loading');
+                        }
+                    });
+                });
+            </script>
+        </div>
+    </div>
+    <div class="about" id="about">
+        <div class="container">
+            <div class="about1 clock wow bounceIn">
+                <div class="col-lg-6 feature fea-slider" data-aos="fade-right">
+                    <img src="~/images/about1.svg" class="img-fluid" style="margin-top:51px" alt="">
+                </div>
+                <div class="col-lg-6 feature pl-lg-5 mt-lg-0 mt-5" data-aos="fade-left">
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <img src="~/images/G16-1.svg" />
+                    <h3 class="title-wthree text-dark mb-4">About Me</h3>
+                    <p>I&#8217m a programmer by profession and a creative storyteller by passion.</p>
+                    <p>My storytelling journey started with my daughter who loves to listen to stories all day long. </p>
+                    <p>I write fables and magical stories with interesting facts so that children learn entertainingly. </p>
+                    <p>Are you someone who is stuck in life and don&#8217t know what you are passionate about or what your talent is? </p>
+                    <p>Then my article about how I found my talent and passion would help and inspire you to find your passion and pursue your dreams.</p>
+                    <img src="~/images/G16-2.svg" />
+                    <img class="imgab" src="~/images/G111.svg" />
+                    <!-- <div class="button-w3ls">
+                        <a href="#" class="btn btn-sm animated-button thar-four">Download <i class="fas fa-download"></i></a>
+                    </div> -->
+                </div>
+                <!-- <div class="col-lg-5 feature pl-lg-5 mt-lg-0 mt-5" data-aos="fade-left">
+
+                    <img src="images/G111.svg" style="width:100%;margin-top:-70px;margin-left:317px"/>
+                </div> -->
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <br />
+    <br />
+    <div class="about" id="services">
+        <!--  <div class="container" "> -->
+        <div class="content-1 clock wow bounceIn">
+            <div class="col-lg-6" style=" background-color:#FFF9D6;">
+                <div class="content-grids">
+                    <!-- <div class="content-left">
+                              <span class="cnt1"> </span>
+            </div> -->
+                    <div id="testID" class="content-right" style="height:600px">
+                        <br />
+                        <h1 style="text-align:center;text-justify: inter-word;">My Books</h1>
+
+                        <h4 style="text-align:center;text-justify: inter-word;">Zippy and Zappy</h4><h6 style="font-size:9px"> Go on an Adventure</h6>
+                        <P id="pr2" style="text-align:center;z-index: 1;
+position: relative;text-justify: inter-word;">
+                            Zippy and Zappy are two tiny ladybird beetles who lived happily in a beautiful cornfield.
+                            One day they decide to leave their home and reach a big city and that&#8217s when the adventure begins.
+                        </P>
+                        <p id="pr3" style="text-justify: inter-word;text-align:center">
+                            &#8217Zippy and Zappy go on an adventure&#8217 is a fun adventure story of two tiny ladybird beetles who decide to leave their home and find new places to explore.
+                            This story is full of twists and turns on how the tiny ladybird beetles escape from different obstacles using their inborn abilities and how they live each moment of their life to the fullest.
+                            This story has a strong message that no matter how tiny you are, you will be able to achieve whatever you aim for if you have strong will power, and if you believe in yourself.
+                            Through this wonderful story, parents and teachers can make kids understand how not to worry over silly things and live the moment happily and take life as it comes with courage.
+                            <i> <a href="https://www.youtube.com/watch?v=KoFH4ebx7s4&feature=youtu.be " class="fa fa-youtube-play" aria-hidden="true" style="padding: 10px;background: #89D761;" target="_blank"> Youtube Link</a></i>
+                        </p>
+                        <!--  <a href=""><!-- <img src="images/proff1.svg" style="position:absolute;top:150px;left:32px"/> </a> -->
+                    </div>
+                    <div class="content-right" id="pr">
+                        <img src="~/images/proff1.svg" class="imgpos" id="pr1" />
+
+                        <a href="https://linktr.ee/renjusridharbooks" class="btn btn-sm animated-button thar-four" style="margin-top:-175px;color:white">Buy Now </a>
+
+                        <!--   <a href="https://linktr.ee/renjusridharbooks">Buy Now</a> -->
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+            
+
+            <div class="col-lg-6" style=" background-color:#D9FFD6;">
+                <div class="content-grids">
+                    <!--  <div class="content-left">
+                               <span class="cnt3"> </span>
+             </div> -->
+                    <div class="content-right" style="height:600px">
+                        <br />
+                        <h1 style="text-align:center">Upcoming Books</h1>
+                        <!-- <P>Jraesent dapibus, neque id cursus fauci-bus, tortor neque egestas augue,euin vulputate magna eros lipsum</P>
+                <a href="#">MORE</a> -->
+                    </div>
+
+                    <div class="content-right">
+                        <img src="~/images/obj.svg" class="imgpos1" />
+                        <a href="#" class="btn btn-sm animated-button thar-four" style="margin-top:-175px;background-color:#51AF4A;color:white">Read More..</a>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <!-- /div> -->
+    </div>
+    <br />
+    <br />
+    <!--Responsive-tabs-Starts-Here-->
+    <div class="" id="project">
+        <div class="container">
+            <div class="tabs-box clock wow bounceIn">
+                <!-- <ul class="tabs-menu" hidden>
+                    <li><a href="#tab1"><img src="images/f.svg" alt="">SED EGEST ASTEET</a></li>
+                    <li><a href="#tab2"><img src="images/d.svg" alt="">MORBI INTERDUM</a></li>
+                    <li><a href="#tab3"><img src="images/u.svg" alt="">MORBI INTERDUM</a></li>
+                </ul> -->
+                <div class="clearfix"> </div>
+                <div class="tab-grids">
+                    <div id="tab1" class="tab-grid">
+                        <div class="col-md-6 line1">
+                            <!-- <img src="images/port1.svg" alt=""> -->
+                            <h2>Get your stories featured here !</h2>
+                            <p>
+                                Are your kids good at storytelling?Do they love writing stories. We would love to get them featured in our website.
+                                Send your stories to <a class="a1" href="mailto: authorrenjusridhar@gmail.com">authorrenjusridhar@gmail.com</a>
+                            </p>
+                            <br />
+                            <div class="button-w3ls">
+                                <a href="#" class="btn btn-sm animated-button" style="background-color:#009DFF;color:white">Read More..</a>
+                            </div>
+                            <!-- <button type="button" class="btn btn-primary" style="float:left;border-radius: 25px;background-color:#009DFF">Read More</button> -->
+                            <img src="~/images/G110.svg" alt="" class="immage">
+                        </div>
+                        <div class="col-md-6 line2">
+                            <img src="~/images/Image2.svg" alt="" class="imgpos2">
+                            <p>.</p>
+                            <img src="~/images/G109.svg" alt="" class="imgpos3">
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Script-->
+        <script src="js/jquery-1.11.0.min.js"></script>
+        <script src="js/myscript.js"></script>
+        `		<!--Script-->
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="project" id="project" style="padding: 2em 0px 3em 0px;">
+        <div class="container">
+            <div class="content-left row" style="width:100%">
+                <div style="float:left" class="col-sm-2">
+                    <img src="~/images/relationship.svg" style="width: 123px;margin-left-25px">
+                </div>
+                <div class="col-sm-8">
+                    <h3 style="text-align:left">Books by my author friends</h3>
+                    <P style="text-align:left">Praesent dapibus, neque id cursus fauci-bus, tortor neque egestas augue,euin vulputate magna eros lipsu Praesent dapibus, neque id cursus fauci-bus, tortor neque egestas augue,euin vulputate magna eros lipsum Praesent</P>
+                </div>
+                <div style="float:right" class="col-sm-2">
+                    <div class="button-w3ls">
+                        <a href="#" class="btn btn-sm animated-button" style="background-color:#FFF">Know More..</a>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+
+    <div class="" id="printables">
+        <div class="container">
+            <div class="tabs-box clock wow bounceIn">
+                <!-- <ul class="tabs-menu" hidden>
+                    <li><a href="#tab1"><img src="images/f.svg" alt="">SED EGEST ASTEET</a></li>
+                    <li><a href="#tab2"><img src="images/d.svg" alt="">MORBI INTERDUM</a></li>
+                    <li><a href="#tab3"><img src="images/u.svg" alt="">MORBI INTERDUM</a></li>
+                </ul> -->
+                <div class="clearfix"> </div>
+                <div class="tab-grids">
+                    <div id="tab1" class="tab-grid">
+                        <div class="col-md-6 line1">
+                            <img src="~/images/46522.svg" alt="" style="position:relative;">
+                            <p>.</p>
+                            <!-- <img src="images/G109.svg" alt=""> -->
+                        </div>
+                        <div class="col-md-6 line2">
+                            <!-- <img src="images/port1.svg" alt=""> -->
+                            <h1>FREE RESOURCES</h1>
+                            <p>Click to download and print these fun activities and share it with your friends too!</p>
+                            <p>Send us the completed activities to <a class="a1" href="mailto: authorrenjusridhar@gmail.com">authorrenjusridhar@gmail.com</a> and stand a chance to get featured in our website.</p>
+                            <br />
+
+                            <a href="@Url.Action("Printables","Home")" class="btn btn-sm animated-button" style="background-color:#009DFF;color:white" target="_blank">Download</a>
+
+                            <!-- <a href='printables.html'>
+                            <button type="button"  class="btn btn-primary" style="float:left;border-radius: 25px;background-color:#009DFF">Download</button>
+                            </a> -->
+                            <!-- <img src="images/G110.svg" alt="" class="immage" > -->
+                        </div>
+
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Script-->
+        <script src="~/js/jquery-1.11.0.min.js"></script>
+        <script src="~/js/myscript.js"></script>
+        `		<!--Script-->
+    </div>
+    <!--Responsive-tabs-ends-Here-->
+    <div class="banner1" id="contact" style="text-align:center;margin-top: 0px;position: relative;">
+        <img src="~/images/43236.svg" style="width: 100%;float: left;">
+
+        <div class="footcontact">
+            <br><br>
+            <span class="text-muted"> <a href="@Url.Action("Index","Home")" style="color:black;">Home </a></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="text-muted"><a href="#about" style=" font-size: 15.3324px; font-family: sans-serif;color:black;">About me</a> </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="text-muted"><a href="@Url.Action("Blog","Home")" style="font-size: 15.3324px; font-family: sans-serif;color:black;">Blog</a> </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="text-muted"> <a href="#services" style="font-size: 15.3324px; font-family: sans-serif;color:black;">Books</a> </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="text-muted">  <a href="#project" style="font-size: 15.3324px; font-family: sans-serif;color:black;">Short stories</a> </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="text-muted"> <a href="#printables" style="font-size: 15.3324px; font-family: sans-serif;color:black;">Free Resorces</a> </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="text-muted"><a href="@Url.Action("Book","Admin")" style="font-size: 15.3324px; font-family: sans-serif;color:black;">My Books</a> </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="text-muted"> <a href="#contact" style="font-size: 15.3324px; font-family: sans-serif;color:black;">Contact</a> </span>
+            <br />
+            <br />
+            <p style="text-align:center;color:black">&copy; 2010-2020 <a class="a1" href="mailto: authorrenjusridhar@gmail.com" style="color:black;">authorrenjusridhar@gmail.com</a> All rights reserved.</p>
+            <br />
+            <div style="margin-left:0px">
+                <i> <a href="https://www.facebook.com/AuthorRenjuSridhar" class="fa fa-facebook" aria-hidden="true" style="padding: 10px;background: #89D761;border-radius: 50%;width: 35px;color: white;"></a></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <i> <a href="https://www.instagram.com/authorrenjusridhar" class="fa fa-instagram" aria-hidden="true" style="padding: 10px;background: #89D761;border-radius: 50%;width: 35px;color: white;"></a></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <i> <a href="https://www.amazon.com/Renju-Sridhar/e/B08G8YRQZ4" class="fa fa-amazon" aria-hidden="true" style="padding: 10px;background: #89D761;border-radius: 50%;width: 35px;color: white;"></a></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+        </div>
+    </div>
+    <a href="@Url.Action("Index","Home")">
+        <button onclick="topFunction()" id="movetop" title="Go to top" style="position: fixed;bottom: 0;right: 0;z-index: 99;font-size: 12px;border: none;outline:none;cursor: pointer;color: #fff;width: 45px;height: 45px;background: rgb(74, 193, 11) none repeat scroll 0% 0%;padding: 0;line-height: 45px;transition: 0.5s ease-out;border-radius: 50%;margin-right:50px">
+            <span class="fa fa-arrow-up" aria-hidden="true"></span>
+        </button>
+    </a>
+    <!--popup-->
+    <div id="enquirypopup" class="modal fade in" role="dialog" style="padding-top: 100px; font-size: 14px !important;background:#98dc7473">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content rows">
+                <div class="modal-header custom-modal-header">
+                    <h4 class="modal-title" style="padding-left: 50px;">"Join Our Email List"</h4>
+                    <a type="button" class="close-iconas" data-dismiss="modal" style="font-size: 14px !important;float:right;margin-top: -18px;margin-right: -9px;z-index: 9999">X</a>
+
+                </div>
+                <div class="modal-body">
+                    <form name="info_form" class="form-inline" action="#" method="post">
+                        <div class="form-group col-sm-12">
+                            <Label style="        color: #4ac10b">First Name</Label><span style="color:red">*</span>
+                            <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Enter First Name" style="border: #98dc74 1px solid" required>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <Label style="        color: #4ac10b">Last Name</Label>
+                            <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Enter Last Name" style="border: #98dc74 1px solid">
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <Label style="        color: #4ac10b">Email</Label><span style="color:red">*</span>
+                            <input type="email" class="form-control" name="email" id="cus_email" placeholder="Enter Email" style="border: #98dc74 1px solid" required>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <div class="col-sm-4">&nbsp;</div>
+                            <div class="col-sm-4">
+                                <a id="btnAdd" class="btn btn-success pull-right"> Submit</a>
+                                </div>
+                            </div>
+</form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+        $(window).load(function () {
+            setTimeout(function () {
+                $('#enquirypopup').modal('show');
+            }, 3000);
+        });
+
+        $("#btnAdd").on("click", function Add() {
+
+            //  alert("add function");
+              var email = $('#cus_email').val();
+          //  alert(email); 
+
+            var cusObj = {
+                first_name: $('#firstname').val(),
+                last_name: $('#lastname').val(),
+                email: $('#cus_email').val()
+            };
+
+            $.ajax({
+                url: "/Home/Create",
+                data: JSON.stringify(cusObj),
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                //contentType: false,
+                //processData: false,
+                success: function (result) {
+                    if (result.success) {
+
+                       // alert(result.responseText);
+
+                    }
+                },
+                error: function (errormessage) {
+                    alert(errormessage.responseText);
+                }
+
+            });
+
+        });
+    </script>
+
+    <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("movetop").style.display = "block";
+            } else {
+                document.getElementById("movetop").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+            document.getElementById("pr1").style.display = "block";
+            document.getElementById("pr2").style.display = "block";
+            document.getElementById("read-more").style.display = "initial";
+            document.getElementById("pr3").style.display = "none";
+        }
+    </script>
+    <!-- /move top -->
+    <script src="~/js/bootstrap.min.js"></script>
+
+    <!--/Readmore -->
+    <script>
+        $(document).ready(function () {
+            var cutCount = 1;
+
+            $("#testID p").each(function (i) {
+                i++;
+                if (i == cutCount) {
+                    $(this).append(' <a id="read-more" style="font-size:8px" href="javascript:void(1)"  onclick="$(\'#pr img\').hide();$(\'#testID p\').show(); $(this).hide();">Show more</b>')
+                }
+                if (i > cutCount) {
+                    $(this).hide();
+                }
+            });
+
+        });
+    </script>
+
+</body>
+</html>

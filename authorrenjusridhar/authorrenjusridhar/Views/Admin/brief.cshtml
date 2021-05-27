@@ -1,0 +1,450 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>RenjuSridhar</title>
+    <link href="~/blog/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="~/blog/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="~/blog/css/style-starter.css" rel='stylesheet' type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Personal Blog, Author,BookAuthor,ChildAuthor" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!----webfonts---->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Oswald:100,400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic' rel='stylesheet' type='text/css'>
+    <!----//webfonts---->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!--end slider -->
+    <!--script-->
+    <script type="text/javascript" src="~/blog/js/move-top.js"></script>
+    <script type="text/javascript" src="~/blog/js/easing.js"></script>
+    <script src="~/blog/js/jquery.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+
+    <!--/script-->
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 900);
+            });
+        });
+    </script>
+    <!---->
+
+</head>
+<body style="font-size:14px">
+    <!---header---->
+    <div class="header-tophny" style="background:white;">
+        <div class="container-fluid">
+            <header class="top-headerhny">
+                <!--/nav-->
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <!--<a class="navbar-brand" href="index.html">
+                        Str<span class="fa fa-globe" aria-hidden="true"></span>ll</a>
+                     if logo is image enable this   -->
+                    <a class="navbar-brand" href="@Url.Action("Index","Home")" style="margin-left:70px">
+                        <img src="~/blog/images/logo.svg" alt="Your logo" title="Your logo" style="height:46px;" />
+                        <img src="~/blog/images/logo1.svg" alt="Your logo" title="Your logo" style="margin-left:-135px;margin-bottom:-46px;" />
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-top:22px;">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="@Url.Action("Index","Home")">
+                                    <img src="~/blog/images/home.svg" alt="Your logo" title="Your logo" style="margin-top:-7px" />
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Home/Index/#about" style=" font-size: 15.3324px; font-family: sans-serif;">About me</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Home/Index#services" style="font-size: 15.3324px; font-family: sans-serif;">Books</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Blog","Home")" style="font-size: 15.3324px; font-family: sans-serif;">Blog</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Home/Index/#project" style="font-size: 15.3324px; font-family: sans-serif;">Short stories</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Home/Index/#printables" style="font-size: 15.3324px; font-family: sans-serif;">Free Resources</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Home/Index/#contact" style="font-size: 15.3324px; font-family: sans-serif;">Contact</a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+
+                </nav>
+                <!--//nav-->
+            </header>
+        </div>
+    </div>
+    <!--/header-->
+    <div class="single">
+        <div class="container">
+            <div class="col-md-12 single-main">
+                @foreach (var item in Model.Blog)
+                {
+                    if (@item.id == @ViewBag.message)
+                    {
+                        <div class="single-grid row">
+                            <div class="col-sm-12">
+                                <h4><a href="@Url.Action("Blog", "Admin")">@item.post_title</a> </h4>
+                                <h6 style="font-size:12px"> @item.created_on</h6>
+                                <input type="hidden" id="post_id" value="@item.id" />
+                                <input type="hidden" id="created_on" value="@item.created_on" />
+                                <input type="hidden" id="updated_on" value="@item.updated_on" />
+                                <input type="hidden" id="post_title" value="@item.post_title" />
+
+                                <input type="hidden" id="post_image" value="@item.post_image" />
+                                <input type="hidden" id="post_comment" value="@item.post_comment" />
+                                <input type="hidden" id="long_description" value="@item.long_description" />
+                                <input type="hidden" id="short_description" value="@item.short_description" />
+                                <input type="hidden" id="post_youtube" value="@item.post_youtube" />
+                                @{ int i1 = 0; }
+                                @foreach (var items in Model.Comments)
+                                {
+
+                                    if (@items.comment_title == @ViewBag.title)
+                                    {
+                                        { i1++; }
+                                    }
+                                }
+
+                                <a id="cmtbtn" style="cursor: pointer; background: #f00; color: white; padding: 5px; float: right; margin-top: -50px; margin-right: 140px; border-radius: 5px; ">
+                                    <i class="fa fa-comment">
+                                    </i>
+                                    @i1
+
+                                </a><a id="likeBtn" style="cursor: pointer; background: #00c3ff; color: white; padding: 5px; float: right; margin-top: -50px; margin-right: 90px; border-radius: 5px; ">
+                                    <i class="fa fa-thumbs-up">
+                                    </i>
+                                    @if (item.post_like != null)
+                                    {
+                                        <input type="hidden" id="post_like" value="@item.post_like" />
+                                        <input type="hidden" id="likeText" hidden value="@item.post_like" />
+                                        <span id="likeSpan">@item.post_like</span>
+                                    }
+                                    else
+                                    {
+                                        <input type="hidden" id="post_like" value="0" />
+                                        <input type="hidden" id="likeText" hidden value="0" />
+                                        <span id="likeSpan"> 0</span>
+                                    }
+
+                                </a>
+                                <a style="cursor: pointer; background: #53c417; color: white; padding: 5px; float: right; margin-top: -50px; margin-right: 40px; border-radius: 5px; ">
+                                    <i class="fa fa-eye">
+                                    </i>
+
+                                    @if (item.post_view != null)
+                                    {
+                                        <input type="hidden" id="post_view" value="@item.post_view" />
+                                        <input type="hidden" id="viewText" hidden value="@item.post_view" />
+                                        <span id="viewSpan">@item.post_view</span>
+                                    }
+                                    else
+                                    {
+                                        <input type="hidden" id="post_view" value="0" />
+                                        <input type="hidden" id="viewText" hidden value="0" />
+                                        <span id="viewSpan"> 0</span>
+                                    }
+
+                                </a>
+                            </div>
+                            <div class="col-sm-12">
+                                <p> @Html.Raw(item.short_description)</p>
+                            </div>
+                            <div class="col-sm-4">
+                                @*<iframe style="width:100%;height:300px;" src="@item.post_youtube.Replace("watch?v=", "embed/")" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>*@
+                                <iframe style="width:100%;height:300px;" src="@item.post_youtube" frameborder="0" allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <br />  Video courtesy of
+                                <a href="" target="">RenjuSridhar</a>.
+                            </div>
+                            <div class="col-sm-8">
+                                <p>@Html.Raw(item.long_description)</p>
+                            </div>
+                            <p>
+
+                            </p>
+                        </div>
+                    }
+                }
+                <!--
+                <ul class="comment-list">
+                    <h5 class="post-author_head">Written by <a style="color:#4bc20c" href="#" title="Posts by RenjuSridhar" rel="author">RenjuSridhar</a></h5>
+                    <li>
+                        <img src="~blog/images/avatar.png" class="img-responsive" alt="">
+                        <div class="desc">
+                            <p>View all posts by: <a style="color:#4bc20c" href="#" title="Posts by RenjuSridhar" rel="author">admin</a></p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </li>
+                </ul>
+                -->
+                <hr />
+                <div class="row">
+                    <div class="single-grid col-sm-6">
+                        <h3 style="color:#4bc20c">Comment Details</h3>
+
+                        @foreach (var item in Model.Comments)
+                        {
+
+                            if (@item.comment_title == @ViewBag.title)
+                            {
+
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <img src="~/images/dummy_profile.jpg" alt="" style="width:75px;opacity:0.3;float: right;" />
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <p>
+                                            <span style="color: black;">  @item.username<br /></span>
+                                            @Html.Raw(item.usercomments)
+                                        </p>
+                                        <span class="likebtn-wrapper" data-theme="disk" data-ef_voting="heartbeat" data-white_label="true" data-identifier="item_1" data-show_like_label="false" data-dislike_enabled="false" data-icon_dislike_show="false" data-counter_show="false" data-popup_disabled="true" data-popup_width="0" data-share_enabled="false" data-tooltip_enabled="false"></span>
+                                        <!-- <input type="text" style="width: 75%; border: #ccc 1px solid; border-radius: 5px; height: 50px;" class="form-conrol" />
+                                        <button class="btn btn-default" style="border:1px solid black; border-radius: 5px;height: 50px;">Reply</button>-->
+                                    </div>
+                                </div>
+                                <hr />
+                            }
+
+                        }
+
+
+                    </div>
+
+                    <div class="content-form  col-sm-6">
+                        <h3 style="color:#4bc20c">Leave a comment</h3>
+                        <span id="msg"></span>
+                        <form>
+                            @*<input type="text" placeholder="id" id="blog_id" value="@(ViewBag.message)" disabled />*@
+                            <input type="hidden" placeholder="id" id="blog_id" disabled />
+                            <input type="hidden" placeholder="title" id="com_title" value="@(ViewBag.title)" disabled />
+                            <input type="text" placeholder="Name" id="name" required />
+                            <input type="text" placeholder="Email" id="email" required />
+                            <textarea placeholder="Message" id="comment"></textarea>
+                            <input asp-for="date" value="@DateTime.Now.ToString()" type="datetime" id="updated" class="form-control" hidden />
+
+                            @*<input type="submit" style="background:#4bc20c" value="SEND" />*@
+                        </form>
+                        <button style="background:#4bc20c;color:#fff" type="button" class="btn btn-success" onclick="insertData()" id="btnAdd"> <i class='fa fa-check'></i> Submit</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4 side-content" hidden>
+                <div class="recent">
+                    <h3>RECENT POSTS</h3>
+                    <ul>
+                        <li><a href="#">Aliquam tincidunt mauris</a></li>
+                        <li><a href="#">Vestibulum auctor dapibus  lipsum</a></li>
+                        <li><a href="#">Nunc dignissim risus consecu</a></li>
+                        <li><a href="#">Cras ornare tristiqu</a></li>
+                    </ul>
+                </div>
+                <div class="comments">
+                    <h3>RECENT COMMENTS</h3>
+                    <ul>
+                        <li><a href="#">Amada Doe </a> on <a href="#">Hello World!</a></li>
+                        <li><a href="#">Peter Doe </a> on <a href="#"> Photography</a></li>
+                        <li><a href="#">Steve Roberts  </a> on <a href="#">HTML5/CSS3</a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+                <div class="archives">
+                    <h3>ARCHIVES</h3>
+                    <ul>
+                        <li><a href="#">October 2013</a></li>
+                        <li><a href="#">September 2013</a></li>
+                        <li><a href="#">August 2013</a></li>
+                        <li><a href="#">July 2013</a></li>
+                    </ul>
+                </div>
+                <div class="categories">
+                    <h3>CATEGORIES</h3>
+                    <ul>
+                        <li><a href="#">Vivamus vestibulum nulla</a></li>
+                        <li><a href="#">Integer vitae libero ac risus e</a></li>
+                        <li><a href="#">Vestibulum commo</a></li>
+                        <li><a href="#">Cras iaculis ultricies</a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    </div>
+    <!---->
+    <div class="footer" style="padding:0px !important;text-align:center">
+        <div class="container">
+            <p>Copyrights © 2020 Blog All rights reserved | by <a style="color:#4bc20c" href="http://renjusridhar.com/">www.renjusridhar.com</a></p>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var likeText = document.getElementById("likeText").value;
+            var post_title = document.getElementById("post_title").value;
+            var post_id = document.getElementById("post_id").value;
+            var short_description = document.getElementById("short_description").value;
+            var long_description = document.getElementById("long_description").value;
+            var post_image = document.getElementById("post_image").value;
+            var post_youtube = document.getElementById("post_youtube").value;
+            var post_comment = document.getElementById("post_comment").value;
+            var viewText = parseInt(document.getElementById("viewText").value);
+            var created_on = document.getElementById("created_on").value;
+            var updated_on = document.getElementById("updated_on").value;
+
+            var newText = viewText + 1;
+            document.getElementById("post_view").value = newText;
+            $('#viewSpan').html(newText);
+
+            var likeObj = {
+                id: post_id,
+                post_title: post_title,
+                short_description: short_description,
+                long_description: long_description,
+                post_image: post_image,
+                post_youtube: post_youtube,
+                post_comment: post_comment,
+                post_view: newText,
+                created_on: created_on,
+                updated_on: updated_on,
+                post_like: likeText
+            };
+            $.ajax({
+                url: "/Admin/view",
+                data: JSON.stringify(likeObj),
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                //contentType: false,
+                //processData: false,
+                success: function (result) {
+
+                },
+                error: function (errormessage) {
+                    alert(errormessage.responseText);
+                }
+
+            });
+        });
+        $("#likeBtn").on("click", function likeAdd() {
+            var likeText = parseInt(document.getElementById("likeText").value);
+            var post_title = document.getElementById("post_title").value;
+            var post_id = document.getElementById("post_id").value;
+            var short_description = document.getElementById("short_description").value;
+            var long_description = document.getElementById("long_description").value;
+            var post_image = document.getElementById("post_image").value;
+            var post_youtube = document.getElementById("post_youtube").value;
+            var post_comment = document.getElementById("post_comment").value;
+            var post_view = document.getElementById("post_view").value;
+            var created_on = document.getElementById("created_on").value;
+            var updated_on = document.getElementById("updated_on").value;
+
+            var newText = likeText + 1;
+            document.getElementById("likeText").value = newText;
+            $('#likeSpan').html(newText);
+            var likeObj = {
+                id: post_id,
+                post_title: post_title,
+                short_description: short_description,
+                long_description: long_description,
+                post_image: post_image,
+                post_youtube: post_youtube,
+                post_comment: post_comment,
+                post_view: post_view,
+                created_on: created_on,
+                updated_on: updated_on,
+                post_like: newText
+            };
+            $.ajax({
+                url: "/Admin/like",
+                data: JSON.stringify(likeObj),
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                //contentType: false,
+                //processData: false,
+                success: function (result) {
+
+                },
+                error: function (errormessage) {
+                    alert(errormessage.responseText);
+                }
+
+            });
+        });
+        $("#btnAdd").on("click", function Add() {
+            //$(document).ready(function () {
+
+            //    $("#btnAdd").click(function (e) {
+
+            // alert("add function");
+            /*var  idd = $("#blog_id").val();
+              var    comment_title = $('#com_title').val();
+              var username = $('#name').val();
+              var useremail = $('#email').val();
+              var usercomments = $('#comment').val();
+              var commented_on = $('#updated').val();
+             */
+            var empObj = {
+                userid: $("#blog_id").val,
+                comment_title: $('#com_title').val(),
+                username: $('#name').val(),
+                useremail: $('#email').val(),
+                usercomments: $('#comment').val(),
+                commented_on: $('#updated').val()
+            };
+
+
+            $.ajax({
+                url: "/Admin/Comment",
+                data: JSON.stringify(empObj),
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                //contentType: false,
+                //processData: false,
+                success: function (result) {
+                    if (result.success) {
+
+                        $('#msg').html("<div style='background:#4bc213;color:#fff;padding: 5px;text-align: center;width: 80%;margin: auto;border-radius: 5px;'>Thank You for Your Valuable Comment.</div>");
+                        setTimeout(function () {
+                            window.location.reload(1);
+                        }, 3000);
+                    }
+                },
+                error: function (errormessage) {
+                    alert(errormessage.responseText);
+                }
+
+            });
+
+        });
+        //  });
+
+    </script>
+    <script>(function (d, e, s) { if (d.getElementById("likebtn_wjs")) return; a = d.createElement(e); m = d.getElementsByTagName(e)[0]; a.async = 1; a.id = "likebtn_wjs"; a.src = s; m.parentNode.insertBefore(a, m) })(document, "script", "../../blog/js/widget.js");</script>
+    @*<script>(function (d, e, s) { if (d.getElementById("likebtn_wjs")) return; a = d.createElement(e); m = d.getElementsByTagName(e)[0]; a.async = 1; a.id = "likebtn_wjs"; a.src = s; m.parentNode.insertBefore(a, m) })(document, "script", "//w.likebtn.com/js/w/widget.js");</script>*@
+</body>
+</html >

@@ -1,0 +1,326 @@
+﻿@model IEnumerable<authorrenjusridhar.Models.author_blog>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>RenjuSridhar</title>
+    <link href="~/blog/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="~/blog/css/style.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="~/blog/css/style-starter.css" type='text/css'>
+    <link href="../css/clean-blog.min.css" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Author,ChildAuthor,Books" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!----webfonts---->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Oswald:100,400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic' rel='stylesheet' type='text/css'>
+    <!----//webfonts---->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!--end slider -->
+    <!--script-->
+    <script type="text/javascript" src="~blog/js/move-top.js"></script>
+    <script type="text/javascript" src="~blog/js/easing.js"></script>
+    <!--/script-->
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 900);
+            });
+        });
+    </script>
+
+    <!---->
+    @*<link href="~/css/lk.css" rel='stylesheet' type='text/css' />*@
+    <style>
+        .bloger-grid {
+            width: 100%;
+            float: left;
+            padding-bottom: 20px;
+            border-bottom: 1px ridge rgb(241, 241, 241);
+            padding: 20px 0px 20px 20px;
+        }
+        .blog-img {
+            float: left;
+            cursor: pointer;
+            background: #fff;
+            padding: 10px;
+            box-shadow: 0px 0px 10px rgb(223, 223, 223);
+            width: 42%;
+        }
+        .bloger-content {
+            float: left;
+            width: 53%;
+            margin-left: 2%;
+        }
+        ol, ul {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+        .bloger-content p {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            line-height: 2em;
+            color: #666;
+            padding: 16px 0px;
+        }
+        .bloger-content ul li {
+            display: inline-block;
+            -webkit-transition: all .9s;
+            -moz-transition: all .9s;
+            -o-transition: all .9s;
+            -ms-transition: all .9s;
+            transition: all .9s;
+        }
+            .bloger-content ul li:last-child {
+                font-family: 'Carrois Gothic SC', sans-serif;
+                float: right;
+                font-size: 12px;
+                display: inline-block;
+                padding: 4px 12px;
+                margin-bottom: 0;
+                line-height: 20px;
+                color: #333333;
+                text-align: center;
+                text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+                vertical-align: middle;
+                cursor: pointer;
+                background-color: #f5f5f5;
+                background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+                background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+                background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+                background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+                background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+                background-repeat: repeat-x;
+                border: 1px solid #cccccc;
+                border-top-color: rgb(204, 204, 204);
+                border-right-color: rgb(204, 204, 204);
+                border-bottom-color: rgb(204, 204, 204);
+                border-left-color: rgb(204, 204, 204);
+                border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+                border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+                border-bottom-color: rgba(0, 0, 0, 0.25);
+                border-bottom-color: #b3b3b3;
+                -webkit-border-radius: 4px;
+                -moz-border-radius: 4px;
+                border-radius: 4px;
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+                filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+                -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+                -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+                box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+            }
+    </style>
+    <style>
+
+        div.autoShowHide {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <!---header---->
+    <div class="header-tophny" style="background:white;">
+        <div class="container-fluid">
+            <header class="top-headerhny">
+                <!--/nav-->
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <!--<a class="navbar-brand" href="index.html">
+                        Str<span class="fa fa-globe" aria-hidden="true"></span>ll</a>
+                     if logo is image enable this   -->
+                    <a class="navbar-brand" href="@Url.Action("Index","Home")" style="margin-left:70px">
+                        <img src="~/blog/images/logo.svg" alt="Your logo" title="Your logo" style="height:46px;" />
+                        <img src="~/blog/images/logo1.svg" alt="Your logo" title="Your logo" style="margin-left:-135px;margin-bottom:-46px;" />
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-top:22px;">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="@Url.Action("Index","Home")">
+                                    <img src="~/blog/images/home.svg" alt="Your logo" title="Your logo" style="margin-top:-7px" />
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Home/Index/#about" style=" font-size: 15.3324px; font-family: sans-serif;">About me</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Home/Index#services" style="font-size: 15.3324px; font-family: sans-serif;">Books</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Blog","Home")" style="font-size: 15.3324px; font-family: sans-serif;">Blog</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Home/Index/#project" style="font-size: 15.3324px; font-family: sans-serif;">Short stories</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Home/Index/#printables" style="font-size: 15.3324px; font-family: sans-serif;">Free Resources</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Home/Index/#contact" style="font-size: 15.3324px; font-family: sans-serif;">Contact</a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+
+                </nav>
+                <!--//nav-->
+            </header>
+        </div>
+    </div>
+
+    <!--/header-->
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('../img/h1.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h1>My Blog</h1>
+                        <span class="subheading">Renjusridhar </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="content">
+        <div class="container">
+            <div class="content-grids">
+
+                <div class="col-md-8 content-main">
+                    <div class="content-grid">
+                        @foreach (var item in Model)
+                        {
+                            <div class="bloger-grid">
+
+                                <div class="blog-img">
+                                    <img src="~/upload/@item.post_image" alt="@item.post_image" style="width:100%"/>
+                                </div>
+                                <div class="bloger-content">
+                                    <h4>
+                                        <a style="color:#4bc20c;float:inline-start" onClick="onClick1()" href="@Url.Action("brief","Admin",new { id = item.id })">@item.post_title</a>
+
+                                        @*<span style="color:#4bc20c;float:inline-end;font-size: 14px;padding-top: 10px;">
+                <i class="fa fa-eye"></i>&nbsp;  @item.post_view&nbsp;&nbsp;
+            </span>
+            <span style="color:#76ccfd;float:inline-end;font-size: 14px;padding-top: 10px;">
+                <i class="fa fa-thumbs-up"></i>&nbsp;  @item.post_like&nbsp;&nbsp;
+            </span><span></span>*@
+                                    </h4>
+                                    <div class="autoShowHide">
+                                        @Html.Raw(item.long_description)<br />
+
+                                    </div>
+                                    <a href="@Url.Action("brief","Admin",new { id = item.id })"><span style="color: #4bc20c;font-size: 13px">Read more</span></a>
+                                    <h4>
+                                        <span style="color:#4bc20c;float:inline-end;font-size: 14px;padding-top: 10px;">
+                                            <i class="fa fa-eye"></i>&nbsp;  @item.post_view&nbsp;&nbsp;
+                                        </span>
+                                        <span style="color:#76ccfd;float:inline-end;font-size: 14px;padding-top: 10px;">
+                                            <i class="fa fa-thumbs-up"></i>&nbsp;  @item.post_like&nbsp;&nbsp;
+                                        </span><span></span>
+                                    </h4>
+                                    <ul>
+                                        <li><a href="#" style="font-size:12px">Renju Sridhar</a></li>
+                                        <li><a href="#" style="font-size:12px">: @item.created_on</a></li>
+                                        <li style="padding:0px !important">@*<a href="@Url.Action("brief","Admin",new { id = item.id })"><span>Read more</span></a>*@</li>
+                                    </ul>
+                                </div>
+                                <div class="clear"> </div>
+                            </div>
+                        }
+                    </div>
+                    </div>
+
+                    <div class="col-md-4 content-right">
+                        <div class="recent">
+                            <h3>RECENT POSTS</h3>
+                            @foreach (var item in Model)
+                            {
+                                <ul>
+                                    <li><a style="color:#4bc20c" href="@Url.Action("brief","Admin",new { id = item.id })">@item.post_title</a></li>
+                                    @*<li><a href="#">Vestibulum auctor dapibus  lipsum</a></li>
+                                        <li><a href="#">Nunc dignissim risus consecu</a></li>
+                                        <li><a href="#">Cras ornare tristiqu</a></li>*@
+                                </ul>
+                            }
+                        </div>
+                        <div class="comments" hidden>
+                            <h3>RECENT COMMENTS</h3>
+                            <ul>
+                                <li><a href="#">Amada Doe </a> on <a href="#">Hello World!</a></li>
+                                <li><a href="#">Peter Doe </a> on <a href="#"> Photography</a></li>
+                                <li><a href="#">Steve Roberts  </a> on <a href="#">HTML5/CSS3</a></li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="archives" hidden>
+                            <h3>ARCHIVES</h3>
+                            <ul>
+                                <li><a href="#">October 2013</a></li>
+                                <li><a href="#">September 2013</a></li>
+                                <li><a href="#">August 2013</a></li>
+                                <li><a href="#">July 2013</a></li>
+                            </ul>
+                        </div>
+                        <div class="categories">
+                            <h3>Books</h3>
+                            <ul>
+                                <li><a style="color:#4bc20c" href="https://linktr.ee/renjusridharbooks">Zippy and Zappy</a></li>
+                                <li><a style="color:#4bc20c" href="https://linktr.ee/renjusridharbooks">Dreamy</a></li>
+                                @*<li><a href="#">Vestibulum commo</a></li>
+                                    <li><a href="#">Cras iaculis ultricies</a></li>*@
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <!---->
+        <div class="footer" style="padding:0px !important">
+            <div class="container">
+                <p>Copyrights © 2020 Blog All rights reserved | by <a style="color:#4bc20c" href="http://renjusridhar.com/">www.renjusridhar.com</a></p>
+            </div>
+        </div>
+        <script>(function (d, e, s) { if (d.getElementById("likebtn_wjs")) return; a = d.createElement(e); m = d.getElementsByTagName(e)[0]; a.async = 1; a.id = "likebtn_wjs"; a.src = s; m.parentNode.insertBefore(a, m) })(document, "script", "../blog/js/widget.js");</script>
+        <script type="text/javascript">
+            var clicks = 0;
+            function onClick() {
+                clicks += 1;
+                document.getElementById("clicks").innerHTML = clicks;
+            };
+        </script>
+        <script type="text/javascript">
+            var clicks1 = 0;
+            function onClick1() {
+                clicks1 += 1;
+                document.getElementById("clicks1").innerHTML = clicks1;
+            };
+        </script>
+
+    </body>
+</html >

@@ -1,0 +1,374 @@
+﻿@model IEnumerable<authorrenjusridhar.Models.author_books>
+
+@{
+    Layout = null;
+}
+
+
+<!Doctype html>
+<html lang="zxx">
+
+<head>
+    <title>RenjuSridhar</title>
+    <link href="~/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="~/css/style-starter.css">
+    <link href="~/css/style.css" rel='stylesheet' type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script src="~/js/jquery-1.11.0.min.js"></script>
+    <link rel="stylesheet" href="~/css/flexslider.css" type="text/css" media="screen" />
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700,800&display=swap" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'> -->
+    <script src="~/js/modernizr.js"></script>
+    <!--Start-smoth-scrolling-->
+    <script type="text/javascript" src="~/js/move-top.js"></script>
+    <script type="text/javascript" src="~/js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+    <!--end-smoth-scrolling-->
+    <!--animated-css-->
+    <link href="~/css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <script src="~/js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <style>
+
+        .w3l-gallery-6 .gal-slide-info {
+            left: auto;
+            bottom: 0;
+            width: 100%;
+            padding: 0 45px;
+            padding-top: 20px !important;
+            opacity: 0;
+            color: #fff;
+            transform: translate3d(0, 10%, 0);
+            transition: opacity 0.3s;
+        }
+    </style>
+    <!--animated-css-->
+</head>
+<body>
+    <section class="w3l-header-4 mobile-header" style="border-bottom: 1px #4ac10b57 solid;">
+        <div class="header-tophny" style="background:white;">
+            <div class="container-fluid">
+                <header class="top-headerhny">
+                    <!--/nav-->
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <!--<a class="navbar-brand" href="index.html">
+                            Str<span class="fa fa-globe" aria-hidden="true"></span>ll</a>
+                         if logo is image enable this   -->
+                        <a class="navbar-brand" href="@Url.Action("Index","Home")" style="margin-left:70px">
+                            <img src="~/images/logo.png" alt="Your logo" title="Your logo" style="height:46px;" />
+                            <!--<img src="~/images/logo1.png" alt="Your logo" title="Your logo" style="margin-left:-141px;margin-bottom:-46px;"  />-->
+                            <a style="font-size:14px;margin-left:-145px;margin-bottom:-61px;">The Childrens Author</a>
+                        </a>
+                        <!--
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>-->
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-top:22px;">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="/Home/Index">
+                                        <img src="~/images/home.png" alt="Your logo" title="Your logo" style="margin-top:-7px" />
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Home/Index/#about" style=" font-size: 15.3324px; font-family: sans-serif;">About me</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Home/Index/#services" style="font-size: 15.3324px; font-family: sans-serif;">Books</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="@Url.Action("Blog","Home")" style="font-size: 15.3324px; font-family: sans-serif;">Blog</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Home/Index/#project" style="font-size: 15.3324px; font-family: sans-serif;">Story</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Home/Index/#printables" style="font-size: 15.3324px; font-family: sans-serif;">Free Resources</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="@Url.Action("Book","Admin")" style="font-size: 15.3324px; font-family: sans-serif;">My Books</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Home/Index/#contact" style="font-size: 15.3324px; font-family: sans-serif;">Contact</a>
+                                </li>
+                            </ul>
+
+                        </div>
+
+
+                    </nav>
+                    <!--//nav-->
+                </header>
+            </div>
+        </div>
+    </section>
+
+    <!-- Headers-4 block -->
+    <!--destinations -->
+    <section class="w3l-destinations-1">
+        <div class="destionation-innf py-5">
+            <div class="container py-lg-5">
+                <div class="title-content mb-5">
+                    <center><h3 class="hny-title">My Books</h3></center>
+                   
+                </div>
+                <!--/destinations-grids-->
+                <ul class="gallery_agile">
+                    @foreach (var item in Model)
+                    {
+                    <li>
+                        <div class="w3_agile_portfolio_grid">
+                            <a href="@item.book_link">
+                                <img src="@Url.Content(Convert.ToString(item.book_image))" alt=" " class="img-fluid" />
+                                <div class="w3layouts_news_grid_pos">
+                                    <div class="wthree_text">
+                                        <h3>@item.book_title</h3>
+
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="wthree_text2">
+                                <h4>@item.book_title</h4>
+                            </div>
+                        </div>
+                        <p> @Html.Raw(item.book_description)</p>
+                    </li>
+                    }
+                   
+
+                </ul>
+                <!--//destinations-grids-->
+            </div>
+        </div>
+    </section>
+    <!--//destinations -->
+    <section class="w3l-grid-slider-vv">
+        <div class="grid-slider py-5">
+            <div class="container py-lg-5">
+                <!-- /grids -->
+                <div id="owl-demo3" class="owl-carousel owl-theme">
+                    @foreach (var item in Model)
+                    {
+                        <div class="item">
+                            <div class="content-left-sec gal-slide-grid">
+                                <div class="gal-slide-img">
+                                    <a href="#"><img src="@Url.Content(Convert.ToString(item.book_image))" class="img img-fluid" alt=""></a>
+                                </div>
+                                <div class="gal-slide-info">
+
+                                    <a href="#">
+                                        <h4 class="mt-4 mb-0">Paries</h4>
+                                    </a>
+                                    <h6 class="mt-sm-2 mt-1">@item.book_title <span><a href="@item.book_link"></a></span></h6>
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+                        @*<div class="item">
+                <div class="content-left-sec gal-slide-grid">
+                    <div class="gal-slide-img">
+                        <a href="#"><img src="assets/images/g2.jpg" class="img img-fluid" alt=""></a>
+                    </div>
+                    <div class="gal-slide-info">
+
+                        <a href="#">
+                            <h4 class="mt-4 mb-0">Bankok</h4>
+                        </a>
+                        <h6 class="mt-sm-2 mt-1">2Days, 3 Nights Start From <span>$650</span></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="content-left-sec gal-slide-grid">
+                    <div class="gal-slide-img">
+                        <a href="#"><img src="assets/images/g3.jpg" class="img img-fluid" alt=""></a>
+                    </div>
+                    <div class="gal-slide-info">
+
+                        <a href="#">
+                            <h4 class="mt-4 mb-0">Maldives</h4>
+                        </a>
+                        <h6 class="mt-sm-2 mt-1">2Days, 3 Nights Start From <span>$550</span></h6>
+
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="content-left-sec gal-slide-grid">
+                    <div class="gal-slide-img">
+                        <a href="#"><img src="assets/images/g4.jpg" class="img img-fluid" alt=""></a>
+                    </div>
+                    <div class="gal-slide-info">
+
+                        <a href="#">
+                            <h4 class="mt-4 mb-0">Greece</h4>
+                        </a>
+                        <h6 class="mt-sm-2 mt-1">3Days, 4 Nights Start From <span>$950</span></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="content-left-sec gal-slide-grid">
+                    <div class="gal-slide-img">
+                        <a href="#"><img src="assets/images/g5.jpg" class="img img-fluid" alt=""></a>
+                    </div>
+                    <div class="gal-slide-info">
+
+                        <a href="#">
+                            <h4 class="mt-4 mb-0">London</h4>
+                        </a>
+                        <h6 class="mt-sm-2 mt-1">2Days, 3 Nights Start From <span>$550</span></h6>
+
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="content-left-sec gal-slide-grid">
+                    <div class="gal-slide-img">
+                        <a href="#"><img src="assets/images/g6.jpg" class="img img-fluid" alt=""></a>
+                    </div>
+                    <div class="gal-slide-info">
+
+                        <a href="#">
+                            <h4 class="mt-4 mb-0">Julian Alps</h4>
+                        </a>
+                        <h6 class="mt-sm-2 mt-1">3Days, 4 Nights Start From <span>$850</span></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="content-left-sec gal-slide-grid">
+                    <div class="gal-slide-img">
+                        <a href="#"><img src="assets/images/g7.jpg" class="img img-fluid" alt=""></a>
+                    </div>
+                    <div class="gal-slide-info">
+
+                        <a href="#">
+                            <h4 class="mt-4 mb-0">Thailand</h4>
+                        </a>
+                        <h6 class="mt-sm-2 mt-1">3Days, 4 Nights Start From <span>$650</span></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="content-left-sec gal-slide-grid">
+                    <div class="gal-slide-img">
+                        <a href="#"><img src="assets/images/g8.jpg" class="img img-fluid" alt=""></a>
+                    </div>
+                    <div class="gal-slide-info">
+
+                        <a href="#">
+                            <h4 class="mt-4 mb-0">Singapore</h4>
+                        </a>
+                        <h6 class="mt-sm-2 mt-1">3Days, 4 Nights Start From <span>$850</span></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="content-left-sec gal-slide-grid">
+                    <div class="gal-slide-img">
+                        <a href="#"><img src="assets/images/g9.jpg" class="img img-fluid" alt=""></a>
+                    </div>
+                    <div class="gal-slide-info">
+
+                        <a href="#">
+                            <h4 class="mt-4 mb-0">Egypt</h4>
+                        </a>
+                        <h6 class="mt-sm-2 mt-1">3Days, 4 Nights Start From <span>$750</span></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="content-left-sec gal-slide-grid">
+                    <div class="gal-slide-img">
+                        <a href="#"><img src="assets/images/g4.jpg" class="img img-fluid" alt=""></a>
+                    </div>
+                    <div class="gal-slide-info">
+
+                        <a href="#">
+                            <h4 class="mt-4 mb-0">Greece</h4>
+                        </a>
+                        <h6 class="mt-sm-2 mt-1">3Days, 4 Nights Start From <span>$950</span></h6>
+                    </div>
+                </div>
+            </div>*@
+
+                    </div>
+            </div>
+            <!-- /grids -->
+        </div>
+        
+    </section>
+    
+  
+</body>
+
+</html>
+
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+
+<!-- disable body scroll which navbar is in active -->
+<script>
+    $(function () {
+        $('.navbar-toggler').click(function () {
+            $('body').toggleClass('noscroll');
+        })
+    });
+</script>
+<!--/MENU-JS-->
+<script src="assets/js/jquery-2.1.4.min.js"></script>
+<!-- js for portfolio lightbox -->
+<script src="assets/js/jquery.chocolat.js "></script>
+<!--light-box-files -->
+<script type="text/javascript ">
+    $(function () {
+        $('.w3_agile_portfolio_grid a').Chocolat();
+    });
+</script>
+<!-- /js for portfolio lightbox -->
+<!-- for blog carousel slider -->
+<script src="assets/js/owl.carousel1.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#owl-demo3").owlCarousel({
+            loop: true,
+            margin: 20,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 2,
+                    nav: true
+                },
+                600: {
+                    items: 2,
+                    nav: false
+                },
+                1000: {
+                    items: 5,
+                    nav: true,
+                    loop: false
+                }
+            }
+        })
+    })
+</script>
+<!-- //jQuery-Photo-filter-lightbox-portfolio-plugin -->
+<script src="assets/js/bootstrap.min.js"></script>

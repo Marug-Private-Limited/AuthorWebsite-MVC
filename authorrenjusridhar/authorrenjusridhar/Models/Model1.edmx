@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="renju_sridharModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="author_blog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="post_title" Type="varchar" MaxLength="100" />
+          <Property Name="short_description" Type="varchar" MaxLength="250" />
+          <Property Name="long_description" Type="text" />
+          <Property Name="post_image" Type="varchar" MaxLength="150" />
+          <Property Name="post_youtube" Type="varchar" MaxLength="256" />
+          <Property Name="post_like" Type="int" />
+          <Property Name="post_comment" Type="int" />
+          <Property Name="post_view" Type="int" />
+          <Property Name="created_on" Type="varchar" MaxLength="50" />
+          <Property Name="updated_on" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="author_blogcomments">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="comment_title" Type="varchar" MaxLength="100" />
+          <Property Name="username" Type="varchar" MaxLength="100" />
+          <Property Name="useremail" Type="varchar" MaxLength="100" />
+          <Property Name="usercomments" Type="text" />
+          <Property Name="commented_on" Type="date" />
+        </EntityType>
+        <EntityType Name="author_books">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="book_title" Type="varchar" MaxLength="100" />
+          <Property Name="book_link" Type="varchar" MaxLength="500" />
+          <Property Name="book_description" Type="text" />
+          <Property Name="book_image" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="author_userprofile">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="subscribers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="100" />
+          <Property Name="last_name" Type="varchar" MaxLength="100" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityContainer Name="renju_sridharModelStoreContainer">
+          <EntitySet Name="author_blog" EntityType="Self.author_blog" Schema="db" store:Type="Tables" />
+          <EntitySet Name="author_blogcomments" EntityType="Self.author_blogcomments" Schema="db" store:Type="Tables" />
+          <EntitySet Name="author_books" EntityType="Self.author_books" Schema="db" store:Type="Tables" />
+          <EntitySet Name="author_userprofile" EntityType="Self.author_userprofile" Schema="db" store:Type="Tables" />
+          <EntitySet Name="subscribers" EntityType="Self.subscribers" Schema="db" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="renju_sridharModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="author_blog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="post_title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="short_description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="long_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="post_image" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="post_youtube" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="post_like" Type="Int32" />
+          <Property Name="post_comment" Type="Int32" />
+          <Property Name="post_view" Type="Int32" />
+          <Property Name="created_on" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="updated_on" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="author_blogcomments">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="comment_title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="useremail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="usercomments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="commented_on" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="author_books">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="book_title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="book_link" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="book_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="book_image" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="author_userprofile">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="subscriber">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="first_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="last_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="renju_sridharEntities5" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="author_blog" EntityType="Self.author_blog" />
+          <EntitySet Name="author_blogcomments" EntityType="Self.author_blogcomments" />
+          <EntitySet Name="author_books" EntityType="Self.author_books" />
+          <EntitySet Name="author_userprofile" EntityType="Self.author_userprofile" />
+          <EntitySet Name="subscribers" EntityType="Self.subscriber" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="renju_sridharModelStoreContainer" CdmEntityContainer="renju_sridharEntities5">
+          <EntitySetMapping Name="author_blog">
+            <EntityTypeMapping TypeName="renju_sridharModel.author_blog">
+              <MappingFragment StoreEntitySet="author_blog">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="post_title" ColumnName="post_title" />
+                <ScalarProperty Name="short_description" ColumnName="short_description" />
+                <ScalarProperty Name="long_description" ColumnName="long_description" />
+                <ScalarProperty Name="post_image" ColumnName="post_image" />
+                <ScalarProperty Name="post_youtube" ColumnName="post_youtube" />
+                <ScalarProperty Name="post_like" ColumnName="post_like" />
+                <ScalarProperty Name="post_comment" ColumnName="post_comment" />
+                <ScalarProperty Name="post_view" ColumnName="post_view" />
+                <ScalarProperty Name="created_on" ColumnName="created_on" />
+                <ScalarProperty Name="updated_on" ColumnName="updated_on" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="author_blogcomments">
+            <EntityTypeMapping TypeName="renju_sridharModel.author_blogcomments">
+              <MappingFragment StoreEntitySet="author_blogcomments">
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="comment_title" ColumnName="comment_title" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="useremail" ColumnName="useremail" />
+                <ScalarProperty Name="usercomments" ColumnName="usercomments" />
+                <ScalarProperty Name="commented_on" ColumnName="commented_on" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="author_books">
+            <EntityTypeMapping TypeName="renju_sridharModel.author_books">
+              <MappingFragment StoreEntitySet="author_books">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="book_title" ColumnName="book_title" />
+                <ScalarProperty Name="book_link" ColumnName="book_link" />
+                <ScalarProperty Name="book_description" ColumnName="book_description" />
+                <ScalarProperty Name="book_image" ColumnName="book_image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="author_userprofile">
+            <EntityTypeMapping TypeName="renju_sridharModel.author_userprofile">
+              <MappingFragment StoreEntitySet="author_userprofile">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subscribers">
+            <EntityTypeMapping TypeName="renju_sridharModel.subscriber">
+              <MappingFragment StoreEntitySet="subscribers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
